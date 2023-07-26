@@ -6,13 +6,15 @@
  *
  * Return: 0 on SUCCESS, else status
  */
-int main(void)
+int main(int argc, char **argv)
 {
 	size_t n = 0;
-	int i = 0, j = 0, k;
+       	ssize_t j = 0;
+	int i = 0, k;
 	char *buf = NULL, *token, *delims = " \n", **av;
 	pid_t child = 1;
 
+	(void)argc;
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
@@ -32,18 +34,22 @@ int main(void)
 			i++;
 		}
 		av[i] = NULL;
-		i = 0;
 		child = fork();
 		if (child == 0)
 		{
-			if (execve(av[0], av, environ) == -1)
-				perror("./hsh");
+			if (execve(av[0], av, NULL) == -1)
+				perror(argv[0]);
+			_exit(EXIT_FAILURE);
 		}
 		else
+		{
 			wait(NULL);
-		for (k = 0; av[k] != NULL; k++)
-			free(av[i]);
-		free(av);
+			for (k = 0; av[k] != NULL; k++)
+				free(av[k]);
+			free(av);
+			j = 0;
+			i = 0;
+		}
 	}
 	free(buf);
 	return (0);
