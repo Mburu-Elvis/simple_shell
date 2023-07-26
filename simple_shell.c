@@ -9,7 +9,7 @@
 int main(int argc, char **argv)
 {
 	size_t n = 0;
-       	ssize_t j = 0;
+	ssize_t j = 0;
 	int i = 0, k;
 	char *buf = NULL, *token, *delims = " \n", **av;
 	pid_t child = 1;
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 		if (j == -1)
 		{
 			free(buf);
-			break;
+			return (1);
 		}
 		av = malloc(sizeof(char *) * 1024);
 		token = strtok(buf, delims);
