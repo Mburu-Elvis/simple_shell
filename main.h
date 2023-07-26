@@ -9,4 +9,16 @@
 
 extern char **environ;
 
+#define BUFSIZE 1024
+typedef struct pathlist *nodeptr;
+
+struct pathlist
+{
+    char *exe_path;
+    nodeptr next;
+};
+typedef struct pathlist pathlist;
+nodeptr listpath();
+char **absolute_path(char *path);
+
 #endif

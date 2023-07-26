@@ -1,25 +1,21 @@
+#include  <stdio.h>
 #include "main.h"
-#include <string.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/wait.h>
 
-extern char **environ;
 int main(int argc, char **argv)
 {
     size_t n = 0;
     int i = 0, j = 0;
-    char *buf = NULL, *token, **av;
-    char *delims = " \n", *abs_path = NULL;
+    char *buf = NULL,  **av;
     pid_t child = -1;
 
+    (void)argc;
     while (1)
     {
         if (isatty(STDIN_FILENO))
             write(1, "#cisfun$ ", 9);
         j = getline(&buf, &n, stdin);
         if (j == -1)
-        {c
+        {
             return (0);
         }
         av = absolute_path(buf);

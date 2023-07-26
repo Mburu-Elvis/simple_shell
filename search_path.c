@@ -6,13 +6,12 @@
 char **absolute_path(char *path)
 {
     nodeptr head = malloc(sizeof(pathlist));
-    struct stat ffile;
     char **av = malloc(sizeof(char *) * BUFSIZE), *path1 = strdup(path), *token, *delims = " \n";
     char *abs_path = NULL;
     int i = 0, status = 0;
 
     token = strtok(path1, delims);
-    if (strcmp(token, "exit"))
+    if (strcmp(token, "exit") == 0)
         exit(0);
     if (access(token, F_OK) == 0)
     {
@@ -26,7 +25,7 @@ char **absolute_path(char *path)
     else
     {
         head = listpath();
-        while (head != NULL)
+        while (head != NULL && head->exe_path != NULL)
         {
             abs_path = malloc(strlen(head->exe_path) + strlen(token) + 2);
             strcpy(abs_path, head->exe_path);
@@ -36,6 +35,7 @@ char **absolute_path(char *path)
             {
                 av[i] = abs_path;
                 status = 1;
+		i++;
                 break;
             }
             head = head->next;
@@ -49,7 +49,7 @@ char **absolute_path(char *path)
         while (token != NULL)
         {
             av[i] = strdup(token);
-            token = strtok(NULL, delims);
+            token =strtok(NULL, delims);
             i++;
         }
     }
@@ -57,29 +57,3 @@ char **absolute_path(char *path)
 
     return (av);
 }
-//     if (access(path1, F_OK) == 0)
-//         return (path1);
-//     else
-//     {
-//         if (head != NULL)
-//         {
-//             head = listpath();
-//             while (head != NULL)
-//             {
-//                 abs_path = strdup(head->exe_path);
-//                 abs_path = strcat(abs_path, "/");
-//                 abs_path = strcat(abs_path, path1);
-//                 if (stat(abs_path, &ffile) == 0)
-//                 {
-//                     return (abs_path);
-//                 }
-//                 else
-//                     head = head->next;
-//                 if (head->exe_path == NULL && head->next == NULL)
-//                     break;
-//             }
-//         }
-//     }
-
-//     return (NULL);
-// }
