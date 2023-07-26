@@ -8,7 +8,8 @@
 char **absolute_path(char *path)
 {
 	nodeptr head = malloc(sizeof(pathlist));
-	char **av = malloc(sizeof(char *) * BUFSIZE), *path1 = strdup(path), *token, *delims = " \n";
+	char **av = malloc(sizeof(char *) * BUFSIZE), *path1 = strdup(path),
+	*token, *delims = " \n";
 	char *abs_path = NULL;
 	nt i = 0, status = 0;
 
