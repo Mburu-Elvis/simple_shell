@@ -12,13 +12,18 @@ extern char **environ;
 #define BUFSIZE 1024
 typedef struct pathlist *nodeptr;
 
+/**
+* struct pathlist - structure for path.
+* @exe_path: absolute path.
+* @next: the next node pointer.
+*/
 struct pathlist
 {
-    char *exe_path;
-    nodeptr next;
+	char *exe_path;
+	nodeptr next;
 };
 typedef struct pathlist pathlist;
-nodeptr listpath();
+nodeptr listpath(void);
 char **absolute_path(char *path);
 
 #endif
