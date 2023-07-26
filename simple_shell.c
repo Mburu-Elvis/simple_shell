@@ -3,8 +3,6 @@
 
 /**
  * main - the main program of the shell
- * @argc: number of arguments
- * @argv: array of strings of arguments passed
  *
  * Return: 0 on SUCCESS, else status
  */
@@ -12,8 +10,7 @@ int main(void)
 {
 	size_t n = 0;
 	int i = 0, j = 0, k;
-	char *buf = NULL, *token;
-	char *delims = " \n", **av;
+	char *buf = NULL, *token, *delims = " \n", **av;
 	pid_t child = 1;
 
 	while (1)
@@ -43,9 +40,7 @@ int main(void)
 				perror("./hsh");
 		}
 		else
-		{
 			wait(NULL);
-		}
 		for (k = 0; av[k] != NULL; k++)
 			free(av[i]);
 		free(av);
