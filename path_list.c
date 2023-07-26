@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * list_path - create a linked of absolute paths
+ *
+ * Return: head pointer
+ */
 nodeptr listpath(void)
 {
 	nodeptr head = malloc(sizeof(pathlist));
@@ -11,7 +16,7 @@ nodeptr listpath(void)
 	if (dir != NULL)
 	{
 		token = strtok(dir, ":");
-	while (token != NULL)
+		while (token != NULL)
 	{
 		head->exe_path = strdup(token);
 		if (head->exe_path == NULL)
