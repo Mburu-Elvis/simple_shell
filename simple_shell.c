@@ -27,16 +27,16 @@ int main(int argc, char **argv)
             {
                 perror(argv[0]);
             }
+	    while (av[i] != NULL)
+	    {
+		    free(av[i]);i++;
+	    }
+	    free(av);
         }
         else
         {
             wait(NULL);
         }
-    }
-    while (av[i] != NULL)
-    {
-        free(av[i]);
-        i++;
     }
     free(buf);
     return (0);
