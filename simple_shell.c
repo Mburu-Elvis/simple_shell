@@ -16,6 +16,7 @@ int main(int argc, char **argv)
 	char *delims = " \n", **av;
 	pid_t child = 1;
 
+	(void)argc;
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
