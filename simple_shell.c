@@ -21,6 +21,7 @@ int main(int argc, char **argv)
         j = getline(&buf, &n, stdin);
         if (j == -1)
         {
+	    free(buf);
             return (0);
         }
         av = absolute_path(buf);

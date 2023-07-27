@@ -7,11 +7,11 @@
 */
 char **absolute_path(char *path)
 {
-	nodeptr head = malloc(sizeof(pathlist));
+	nodeptr head = malloc(sizeof(pathlist)), temp;
 	char **av = malloc(sizeof(char *) * BUFSIZE), *path1 = strdup(path),
 	*token, *delims = " \n";
 	char *abs_path = NULL;
-	nt i = 0, status = 0;
+	int i = 0, status = 0;
 
 	token = strtok(path1, delims);
 	if (strcmp(token, "exit") == 0)
@@ -27,6 +27,7 @@ char **absolute_path(char *path)
 	}
 	else
 	{
+		temp = head;
 		head = listpath();
 		while (head != NULL && head->exe_path != NULL)
 		{
@@ -41,6 +42,7 @@ char **absolute_path(char *path)
 				i++;
 				break;
 			}
+			free(abs_path);
 			head = head->next;
 		}
 		if (status == 0)
@@ -52,10 +54,12 @@ char **absolute_path(char *path)
 		while (token != NULL)
 		{
 			av[i] = strdup(token);
-			token = strtok(NULL, delims)
+			token = strtok(NULL, delims);
 			i++;
 		}
 	}
+	head = temp;
+	free(path1);
 	av[i] = NULL;
 	return (av);
 }

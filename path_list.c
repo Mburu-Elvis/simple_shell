@@ -12,7 +12,7 @@ nodeptr listpath(void)
 	char *token, *dir, *path;
 
 	path = getenv("PATH");
-	dir = strdup(path);
+	dir = path;
 	if (dir != NULL)
 	{
 		token = strtok(dir, ":");
@@ -30,7 +30,7 @@ nodeptr listpath(void)
 		head->exe_path = NULL;
 		head->next = NULL;
 	}
-		head = temp;
 	free(dir);
+	head = temp;
 	return (head);
 }
