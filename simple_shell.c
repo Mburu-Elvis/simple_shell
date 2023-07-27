@@ -1,6 +1,11 @@
 #include  <stdio.h>
 #include "main.h"
 
+/**
+* main - min function
+*
+* Return: 0
+*/
 int main(int argc, char **argv)
 {
     size_t n = 0;
