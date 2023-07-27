@@ -26,5 +26,6 @@ typedef struct pathlist pathlist;
 nodeptr listpath(void);
 char **absolute_path(char *path);
 void free_list(nodeptr head);
+int execve_call(char **av);
 
 #endif

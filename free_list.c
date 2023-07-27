@@ -8,7 +8,7 @@
  */
 void free_list(nodeptr head)
 {
-	nodeptr temp;
+	nodeptr temp = NULL;
 
 	while (head != NULL)
 	{

@@ -30,7 +30,6 @@ nodeptr listpath(void)
 		head->exe_path = NULL;
 		head->next = NULL;
 	}
-	free(dir);
 	head = temp;
 	return (head);
 }
