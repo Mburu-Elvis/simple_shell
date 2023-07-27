@@ -3,7 +3,7 @@
 /**
 * absolute_path - searches for absolute path.
 * @path: char pointer to be searched
-* Return: a char pointer.
+* Return: a char pointer to a linked list
 */
 char **absolute_path(char *path)
 {
