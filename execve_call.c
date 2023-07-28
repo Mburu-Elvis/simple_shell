@@ -14,6 +14,7 @@ int execve_call(char **av)
 	if (child == 0)
 	{
 		execve(av[0], av, environ);
+		perror("./hsh");
 	}
 	else
 		wait(NULL);
