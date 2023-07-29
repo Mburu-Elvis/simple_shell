@@ -15,7 +15,8 @@ char **absolute_path(char *path)
 	token = strtok(path1, delims);
 	if (strcmp(token, "exit") == 0)
 	{
-		free(path1);
+		free(patih1);
+		free(abs_path1);
 		free(av);
 		exit(0);
 	}
@@ -42,6 +43,7 @@ char **absolute_path(char *path)
 		}
 	}
 	av[i] = NULL;
+	free(abs_path1);
 	free(path1);
 	return (av);
 }

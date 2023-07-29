@@ -31,5 +31,6 @@ int main(void)
 			free(av1);
 		}
 	}
+	free(buf);
 	return (0);
 }
