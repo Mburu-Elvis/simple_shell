@@ -16,4 +16,8 @@ void handle_builtins(char **av)
 			opt = atoi(av[1]);
 		exit(opt);
 	}
+	if (strcmp(av[0], "env") == 0)
+	{
+		print_env();
+	}
 }

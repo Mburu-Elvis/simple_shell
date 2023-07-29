@@ -29,5 +29,6 @@ void free_list(nodeptr head);
 int execve_call(char **av);
 char **make_path(char **av1);
 void handle_builtins(char **av);
+void print_env(void);
 
 #endif
