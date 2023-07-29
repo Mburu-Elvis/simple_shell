@@ -27,7 +27,7 @@ nodeptr listpath(void);
 char **absolute_path(char *path);
 void free_list(nodeptr head);
 int execve_call(char **av);
-int non_path(char *str);
-char *make_path(char *str);
+char **make_path(char **av1);
+void handle_builtins(char **av);
 
 #endif
